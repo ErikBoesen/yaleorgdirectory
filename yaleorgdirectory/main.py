@@ -5,6 +5,8 @@ class Organization(dict):
     def __init__(self, raw):
         self.update(raw)
         self.update(self.__dict__)
+        # Create easier list of tags
+        self.tags = self.keywords.split(', ') if self.keywords else []
 
     def __getattr__(self, attr):
         return self.get(attr)
