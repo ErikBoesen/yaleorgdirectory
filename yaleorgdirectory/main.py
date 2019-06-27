@@ -3,10 +3,11 @@ import requests
 
 class Organization(dict):
     def __init__(self, raw):
-        print(raw)
         self.update(raw)
         self.update(self.__dict__)
 
+    def __getattr__(self, atr):
+        return self.get(attr)
 
 class YaleOrgDirectory:
     API_TARGET = 'https://gw.its.yale.edu/soa-gateway/org/directory'
@@ -41,4 +42,4 @@ class YaleOrgDirectory:
             if type(tags) == list:
                 tags = ','.join(tags)
             params['tags'] = tags
-        return [Organization(raw) for raw in self.get(params)]
+        return [Organization(raw) for raw in self.get(params)['rows']]
