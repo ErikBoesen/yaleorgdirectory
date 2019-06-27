@@ -6,8 +6,11 @@ class Organization(dict):
         self.update(raw)
         self.update(self.__dict__)
 
-    def __getattr__(self, atr):
+    def __getattr__(self, attr):
         return self.get(attr)
+
+    def __repr__(self):
+        return "%s(%s)" % (self.__class__.__name__, dict(self))
 
 class YaleOrgDirectory:
     API_TARGET = 'https://gw.its.yale.edu/soa-gateway/org/directory'
