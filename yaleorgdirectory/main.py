@@ -6,7 +6,7 @@ class Organization(dict):
         self.update(raw)
         self.update(self.__dict__)
         # Create easier list of tags
-        self.tags = self.keywords.split(', ') if self.keywords else []
+        self.tags = [keyword.strip() for keyword in self.keywords.split(', ')] if self.keywords else []
 
     def __getattr__(self, attr):
         return self.get(attr)
