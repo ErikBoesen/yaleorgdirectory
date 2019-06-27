@@ -3,6 +3,7 @@ import requests
 
 class Organization(dict):
     def __init__(self, raw):
+        print(raw)
         self.update(raw)
         self.update(self.__dict__)
 
@@ -31,6 +32,10 @@ class YaleOrgDirectory:
             raise Exception('API request failed. Data returned: ' + request.text)
 
     def organizations(self, tags=[]):
+        """
+        Fetch list of organizations.
+        :param tags: list, or comma-separated string, of tags to specify your search to
+        """
         params = {}
         if tags:
             if type(tags) == list:
