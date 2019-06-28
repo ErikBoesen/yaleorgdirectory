@@ -46,5 +46,6 @@ class YaleOrgDirectory:
         if tags:
             if type(tags) == list:
                 tags = ','.join(tags)
+            tags = tags.replace(' ', '')
             params['tags'] = tags
         return [Organization(raw) for raw in self.get(params)['rows']]
