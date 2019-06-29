@@ -8,7 +8,6 @@ api = yaleorgdirectory.YaleOrgDirectory(os.environ['YALE_API_KEY'])
 orgs = api.organizations()
 for org in orgs:
     print('%s has %d tags.' % (org.name, len(org.tags)))
-    print(len(orgs))
 
 # Get a smaller list by tag
 residences = api.organizations(['undergradhousing'])
@@ -18,4 +17,4 @@ for residence in residences:
 # Or get a single organization
 hopper = api.organization('Grace Hopper College')
 # You can also pass tags to make the search slightly more efficient, but this isn't necessary
-print(hopper.website)
+print('Website for the best residential college: ' + hopper.website)
