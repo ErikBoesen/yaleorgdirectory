@@ -49,3 +49,11 @@ class YaleOrgDirectory:
             tags = tags.replace(' ', '')
             params['tags'] = tags
         return [Organization(raw) for raw in self.get(params)['rows']]
+
+    def organization(self, name, tags=[]):
+        """
+        Fetch a single organization by name.
+        """
+        for organization in self.organizations(tags):
+            if name == organization.name:
+                return organization
