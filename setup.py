@@ -3,7 +3,7 @@
 from setuptools import setup
 
 setup(name='yaleorgdirectory',
-      version='0.1.0',
+      version='0.2.0',
       description='Library for fetching data from the Yale OrgDirectory API.',
       url='https://github.com/ErikBoesen/yaleorgdirectory',
       author='Erik Boesen',
